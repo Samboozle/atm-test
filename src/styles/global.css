@@ -1,0 +1,19 @@
+body {
+  font-family: "Rubik", sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+}
+
+.join-us {
+  background-image: linear-gradient(#9E1CEF, #690FD3);
+}
+
+.foot {
+  background-color: 242424;
+}
