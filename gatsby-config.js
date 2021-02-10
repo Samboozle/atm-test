@@ -3,7 +3,17 @@ module.exports = {
     title: "ATM Test",
   },
   plugins: [
-    "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-postcss",
+      options: { 
+        postcssOptions: {
+          plugins: [
+            require("autoprefixer"),
+            require("postcss-preset-env")({ stage: 0 })
+          ]
+        }
+      }
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -14,5 +24,13 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/
+        }
+      }
+    }
   ],
 };
