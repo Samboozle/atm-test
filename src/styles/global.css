@@ -1,7 +1,9 @@
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
 @custom-media --sm screen and (max-width: 767px);
 @custom-media --md screen and (min-width: 768px) and (max-width: 992px);
-@custom-media --lg screen and (min-width: 993px);
+@custom-media --lg screen and (min-width: 993) and (max-width: 1440px);
+@custom-media --xl screen and (min-width: 1441px)
+
 
 * {
   box-sizing: border-box;
@@ -21,27 +23,78 @@ body {
 /* utility classes */
 
 .container {
-  width: 100%;
+  width: 85%;
   max-width: 1320px;
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
+  justify-content: center;
 
-  @media (--md) {
-    padding: 0px 40px;
-    width: 100%;
-  };
+  @media (--sm) {
+    width: 95%;
+  }
+
+  & .content-segment {
+    width: 50%;
+    @media (--sm) {
+      width: 100%;
+    }
+  }
   
 }
 
+.sm-only {
+  display: none;
+  @media (--sm) {
+    display: flex;
+  }
+}
+
+.sm-anti {
+  display: flex;
+  @media (--sm) {
+    display: none;
+  }
+}
+
+/* main page */
+
+#story {
+  position: relative;
+  z-index: -1;
+  margin-top: -150px;
+  background-image: url(/backgrounds/desktop-background.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  @media (--sm) {
+    background-image: url(/backgrounds/mobile-background.svg);
+  }
+  @media (--md) {
+    background-image: url(/backgrounds/tablet-background.svg);
+  }
+
+}
 
 /* component/section classes */
 
 .navbar {
+  display: flex;
+  justify-content: center;
   position: sticky;
   top: 0;
   box-shadow: 0 -4px 30px #000;
-  padding: 0.75rem 1rem;
+  padding: 1.25rem 1rem;
+  background-color: white;
+  z-index: 1000;
+
+  & .container {
+    width: 90%;
+  }
+
+  @media (--sm) {
+    padding: 0.75rem 1rem;
+  }
+
 }
 
 .link-region {
@@ -60,6 +113,8 @@ body {
     align-items: start;
     & .link {
       font-size: 16px;
+      border: none;
+      margin: 6px 0px;
     }
   }
 }
@@ -83,8 +138,59 @@ body {
   background-color: #3F73F7;
 }
 
+#hero {
+  background-image: url(/heroes/desktop-texture.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 376px) and (max-width: 768px) {
+    background-image: url(/heroes/tablet-texture.png);
+    background-position: center center;
+  }
+  
+  @media screen and (max-width: 375px) {
+    background-image: url(/heroes/mobile-texture.png);
+    background-position: center center;
+  }
+
+  & .container {
+    padding-top: 40px;
+    min-height: 660px;
+
+    @media screen and (min-width: 376px) and (max-width: 768px) {
+      min-height: 490px;
+    }
+
+    @media (--sm) {
+      padding-top: 0;
+      min-height: 670px;
+    }
+  }
+
+  & ::before {
+    position: absolute
+  }
+
+}
+
+.hero-text {
+  font-size: 54px;
+  margin-bottom: 0;
+}
+
+.light {
+  font-weight: 500;
+}
+
 #download-app {
   align-self: center;
+  font-size: 12px;
+  @media (--sm) {
+    font-size: 16px;
+  }
 }
 
 #hamburger-box {
@@ -105,19 +211,40 @@ body {
   }
 }
 
-.hamburger:after {
-
-}
-
 /* "The People" section */
 
 .people {
   background-image: linear-gradient(201.87deg, #07AEFF 1.35%, #3F73F7 114.28%);
+  display: flex;
+  justify-content: center;
+}
 
-  & h3 {
+.person-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+  width: 25%;
+  margin-bottom: 10%;
+
+  & .avatar {
+    width: 100%;
+    max-width: 175px;
+    margin-bottom: 2rem;
+  }
+
+  & :--heading {
+    margin: 0;
     text-align: center;
-    font-size: 36px;
-    font-weight: 700;
+    width: 90%;
+  }
+
+  @media (--md) {
+    width: 50%;
+  }
+
+  @media (--sm) {
+    width: 50%;
   }
 }
 

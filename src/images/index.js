@@ -3,5 +3,5 @@ import Hamburger from "./Hamburger.svg";
 
 export {
   ATMLogo,
-  Hamburger
+  Hamburger,
 }
