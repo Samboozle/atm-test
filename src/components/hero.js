@@ -17,8 +17,8 @@ export default _ => {
           node {
             base
             childImageSharp {
-              fluid(maxWidth: 175, quality: 100) {
-                ...GatsbyImageSharpFluid
+              fixed(width: 166, height: 49) {
+                ...GatsbyImageSharpFixed
               }
             }
           }
@@ -27,28 +27,30 @@ export default _ => {
     }
   `);
 
-  console.log(antDroid, apple, google)
-
   const downloadRegion = className => (
     <div className={ className + " download-app"}>
-      <Img fluid={  apple.node.childImageSharp.fluid } alt="" style={{width: "50%"}} />
-      <Img fluid={ google.node.childImageSharp.fluid } alt="" style={{width: "50%"}} />
+      <h3 className="light" style={{ width: "100%", marginTop: "0" }}> Download the app </h3>
+      <div className="download-icons">
+        <Img fixed={  apple.node.childImageSharp.fixed } alt="" />
+        <Img fixed={ google.node.childImageSharp.fixed } alt="" />
+      </div>
     </div>
   );
 
-  return <div id="hero">
-    <div className="container">
-      <div className="content-segment">
-        <h1 className="hero-text light"> Get Paid For Your Data! </h1>
-        <h3 className="light" style={{ margin: "0" }}> It's fast and easy to use </h3>
-        <br />
-        <h3 className="light"> Download the app </h3>
-        { downloadRegion("sm-anti") }
+  return (
+    <div id="hero">
+      <div className="container">
+        <div className="content-segment">
+          <h1 className="hero-text"> Get Paid For Your Data! </h1>
+          <h3 className="light" style={{ margin: "0" }}> It's fast and easy to use </h3>
+          <br />
+          { downloadRegion("sm-anti") }
+        </div>
+        <div className="content-segment">
+          <Img fluid={ antDroid.childImageSharp.fluid } alt="" className="antDroid" />
+        </div>
+        { downloadRegion("sm-only") }
       </div>
-      <div className="content-segment">
-        <Img fluid={ antDroid.childImageSharp.fluid } alt="" />
-      </div>
-      { downloadRegion("sm-only") }
     </div>
-  </div>
+  );
 }
