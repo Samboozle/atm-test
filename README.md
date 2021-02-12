@@ -1,4 +1,4 @@
-**This site was built for assessment by ATM.com.**
+**This site was built for assessment by ATM.com. Thanks in advance!**
 
   I developed it in a Node V14.5.0 environment. It uses
   - Gatsby
@@ -21,7 +21,7 @@
   or (production)
 
     npm run build
-    npm serve
+    npm run serve
 
 
 **What I learned**
