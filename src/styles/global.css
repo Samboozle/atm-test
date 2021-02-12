@@ -1,0 +1,307 @@
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-media --sm screen and (max-width: 767px);
+@custom-media --md screen and (min-width: 768px) and (max-width: 992px);
+@custom-media --lg screen and (min-width: 993) and (max-width: 1440px);
+@custom-media --xl screen and (min-width: 1441px);
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+  font-family: "RubikVariable";
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+:--heading {
+  color: white;
+}
+
+/* utility classes */
+
+.container {
+  width: 85%;
+  max-width: 1320px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  @media (--sm) {
+    width: 95%;
+  }
+
+  & .content-segment {
+    width: 50%;
+    @media (--sm) {
+      width: 100%;
+    }
+  }
+  
+}
+
+.content-segment {
+  box-sizing: border-box;
+  @media (--lg) {
+    padding-right: 10%;
+  }
+  @media (--sm) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+.sm-only {
+  display: none;
+  @media (--sm) {
+    display: flex;
+  }
+}
+
+.sm-anti {
+  display: flex;
+  @media (--sm) {
+    display: none;
+  }
+}
+
+/* main page */
+
+#story {
+  position: relative;
+  z-index: -1;
+  margin-top: -150px;
+  background-image: url(/backgrounds/desktop-background.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  @media (--sm) {
+    background-image: url(/backgrounds/mobile-background.svg);
+  }
+  @media (--md) {
+    background-image: url(/backgrounds/tablet-background.svg);
+  }
+
+}
+
+/* component/section classes */
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -4px 30px #000;
+  padding: 1.25rem 1rem;
+  background-color: white;
+  z-index: 1000;
+
+  & .container {
+    width: 90%;
+  }
+
+  @media (--sm) {
+    padding: 0.75rem 1rem;
+  }
+
+}
+
+.link-region {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+
+  & .link {
+    font-size: 12px;
+  }
+
+  @media (--sm) {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    & .link {
+      font-size: 16px;
+      border: none;
+      margin: 6px 0px;
+    }
+  }
+}
+
+.link {
+  margin: 2px 10px;
+  height: 50%;
+  border-bottom: 2px solid #009AED;
+  text-decoration: none;
+  color: black;
+}
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0px 24px;
+  height: 28px;
+  color: white;
+  font-size: 12px;
+  border-radius: 18px;
+  background-color: #3F73F7;
+}
+
+#hero {
+  padding-bottom: 10%;
+  background-image: url(/heroes/desktop-texture.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+  display: flex;
+  justify-content: center;
+  
+  @media screen and (min-width: 376px) and (max-width: 768px) {
+    background-image: url(/heroes/tablet-texture.png);
+    background-position: center center;
+  }
+  
+  @media screen and (max-width: 375px) {
+    padding-bottom: 20%;
+    background-image: url(/heroes/mobile-texture.png);
+    background-position: center center;
+  }
+
+  & .container {
+    padding-bottom: 3%;
+    padding-top: 40px;
+
+    @media screen and (min-width: 376px) and (max-width: 768px) {
+      padding-bottom: 20%;
+    }
+
+    @media (--sm) {
+      padding-top: 0;
+      min-height: 670px;
+    }
+  }
+
+  & ::before {
+    position: absolute
+  }
+
+}
+
+.antDroid {
+  margin-left: -5%;
+  margin-top: -5%;
+  @media (--sm) {
+    margin-top: -10%;
+  }
+}
+
+.light {
+  font-weight: 500;
+}
+
+.hero-text {
+  font-size: 72px;
+  margin-bottom: 0;
+  font-weight: 500;
+
+  @media (--md) {
+    font-size: 54px;
+  }
+
+  @media (--sm) {
+    font-size: 48px;
+    font-weight: 700;
+  }
+}
+
+
+.download-app {
+  width: 100%;
+  flex-flow: row wrap;
+  font-size: 16px;
+  @media (--sm) {
+    margin-top: -20%;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  & .download-icons {
+    display: flex;
+    width: auto%;
+    
+    @media (--sm) {
+      margin-top: -10%;
+      width: 100%;
+      justify-content: space-around;
+    }
+  }
+}
+
+#hamburger-box {
+  display: none;
+}
+
+#hamburger-box:checked ~ .link-region {
+  display: flex;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  @media (--sm) {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+}
+
+/* "The People" section */
+
+.people {
+  background-image: linear-gradient(201.87deg, #07AEFF 1.35%, #3F73F7 114.28%);
+  display: flex;
+  justify-content: center;
+}
+
+.person-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+  width: 25%;
+  margin-bottom: 10%;
+
+  & .avatar {
+    width: 100%;
+    max-width: 175px;
+    margin-bottom: 2rem;
+  }
+
+  & :--heading {
+    margin: 0;
+    text-align: center;
+    width: 90%;
+  }
+
+  @media (--md) {
+    width: 50%;
+  }
+
+  @media (--sm) {
+    width: 50%;
+  }
+}
+
+
+
+.join-us {
+  background-image: linear-gradient(#9E1CEF, #690FD3);
+}
+
+.foot {
+  background-color: #242424;
+}
