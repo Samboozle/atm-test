@@ -1,48 +1,35 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+**This site was built for assessment by ATM.com.**
 
-## 🚀 Quick start
+  I developed it in a Node V14.5.0 environment. It uses
+  - Gatsby
+  - Gatsby minimal starter (```gatsby new```)
+  - gatsby-image and its dependencies for some image handling
+  - PostCSS for styling
 
-1.  **Create a Gatsby site.**
+**To launch**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+  Assuming you have npm installed...
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
-
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
+    git clone https://github.com/Samboozle/atm-test.git
+    cd atm-test
+    npm install
+  
+  and either (development)
+    
     npm run develop
-    ```
 
-3.  **Open the code and start customizing!**
+  or (production)
 
-    Your site is now running at http://localhost:8000!
+    npm run build
+    npm serve
 
-    Edit `src/pages/index.js` to see your site update in real-time!
 
-4.  **Learn more**
+**What I learned**
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+  This was my first project in gatsby as well as my first exposure to graphql! I also got to write some (admittedly sloppy) css with PostCSS for the first time.
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+**What it still needs**
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+  - Most of the content
+  - Stylesheet refactoring
+  - Tests!
